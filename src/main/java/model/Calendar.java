@@ -1,6 +1,7 @@
 package main.java.model;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public interface Calendar {
     void showDay();
@@ -9,4 +10,6 @@ public interface Calendar {
 
 
     LocalDate getDate();
+
+    Event getEventConflict(LocalTime st, LocalTime end);
 }

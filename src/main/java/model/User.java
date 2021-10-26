@@ -1,6 +1,7 @@
 package main.java.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 public class User {
     //Calendar calendar;
@@ -33,5 +34,13 @@ public class User {
             day.showDay();
         if(days.size()==0)
             System.out.println("** Nothing to show **");
+    }
+
+    public Event getConflictedEvent(LocalDateTime start, LocalDateTime end) {
+        Calendar day =getDay(start.toLocalDate());
+        if(day==null)
+            return null;
+        else
+            return day.getEventConflict(start.toLocalTime(),end.toLocalTime());
     }
 }

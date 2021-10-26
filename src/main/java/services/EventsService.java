@@ -6,6 +6,7 @@ import main.java.model.Event;
 import main.java.model.User;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -57,4 +58,9 @@ public class EventsService {
         User u=getUser(username);
         u.showAll();
     }
+
+    public Event getConflictedEvent(String username, LocalDateTime start, LocalDateTime end){
+        return getUser(username).getConflictedEvent(start,end);
+    }
+
 }

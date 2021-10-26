@@ -2,6 +2,7 @@ package main.java.commands;
 
 
 import main.java.exceptions.NotSignedInException;
+import main.java.model.Event;
 import main.java.model.EventImpl;
 import main.java.services.EventsService;
 import main.java.services.TokenService;
@@ -25,6 +26,21 @@ public class CreateEvent extends BaseCommand{
             System.out.println("Invalid createEvent command");
             return;
         }
+        if(usercomm.length==6 && usercomm[5].equals("dontcare")){
+            createEvent();
+        } else {
+            String []invitees = usercomm[4].split(",");
+            if (checkConflicts(invitees, LocalDateTime.parse(usercomm[2]), LocalDateTime.parse(usercomm[3]))) {
+                System.out.println("If you want to proceed anyway, type the same " +
+                        "createEvent command with \"dontcare\" (without quotes) at the end");
+            } else{
+                createEvent();
+            }
+        }
+
+    }
+
+    private void createEvent(){
         try{
             String organiser=sessionService.getSession();
             EventImpl event=new EventImpl(tokenService);
@@ -42,6 +58,19 @@ public class CreateEvent extends BaseCommand{
             System.out.println("Sign in first to execute createEvent command");
         }
     }
+    private boolean checkConflicts(String[] invitees, LocalDateTime st,LocalDateTime end){
+        boolean isConflicted=false;
+        for(String inv:invitees){
+            Event evt= evtsvc.getConflictedEvent(inv,st,end);
+            if (evt != null) {
+                System.out.println(inv + " has a " + evt.getStart() + " to " + evt.getEnd() + " event that conflicts");
+                isConflicted=true;
+            }
+        }
+        return isConflicted;
+    }
+
+
 
 
 
