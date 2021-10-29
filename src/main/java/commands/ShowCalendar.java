@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class ShowCalendar extends BaseCommand {
     //help.add("Enter \"showCalendar day <ddmmyy>\" to see day's calendar\n");
     //LocalDate dt;//ddmmyy
-    String COMMAND_NAME="showCalendar";
+
     public void execute() {
         if(!isValid()){
             System.out.println("Invalid showCalendar command");

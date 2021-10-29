@@ -10,6 +10,7 @@ public final class UIService {
         List<String> help =new ArrayList<>();
         help.add("********************Hello**************************");
         help.add("Enter \"help\" to see help menu again");
+        help.add("Enter \"register <username1,username2>\" to register");
         help.add("Enter \"login username\" to login");
         help.add("Enter \"showCalendar day <yyyy-MM-dd>\" to see day's calendar");
         help.add("Enter \"showCalendar all\" to see the full calendar");

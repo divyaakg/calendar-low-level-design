@@ -29,9 +29,9 @@ public class User {
     public String toString(){
         return name+": "+days.toString();
     }
-    public void showAll() {
+    public void showAll(String name) {
         for(Calendar day:days)
-            day.showDay();
+            day.showDay(name);
         if(days.size()==0)
             System.out.println("** Nothing to show **");
     }

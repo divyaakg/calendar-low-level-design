@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public interface Calendar {
-    void showDay();
+    void showDay(String name);
 
     void addEvent(Event a);
 
@@ -12,4 +12,5 @@ public interface Calendar {
     LocalDate getDate();
 
     Event getEventConflict(LocalTime st, LocalTime end);
+    void deleteEvent(Event ev);
 }

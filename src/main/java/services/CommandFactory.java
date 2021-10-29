@@ -22,6 +22,12 @@ public class CommandFactory {
             comm = new Login(splitted, evtSvc, sessionService);
         else if (splitted[0].equals("logout"))
             comm = new Logout(splitted, evtSvc, sessionService);
+        else if(splitted[0].equals("register"))
+            comm= new Register(splitted, evtSvc,sessionService);
+        else if(splitted[0].equals("acceptEvent"))
+            comm= new AcceptOrDeclineEvent(splitted, evtSvc,sessionService);
+        else if(splitted[0].equals("declineEvent"))
+            comm= new AcceptOrDeclineEvent(splitted, evtSvc,sessionService);
         return comm;
     }
 

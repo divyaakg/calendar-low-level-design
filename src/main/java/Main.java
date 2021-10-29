@@ -4,7 +4,7 @@ import main.java.commands.Command;
 import main.java.services.*;
 
 import java.util.Scanner;
-
+import java.util.logging.Logger;
 public class Main {
     /*
     todo: 1. multithreading
@@ -13,6 +13,7 @@ public class Main {
           4. filemode
           5. exceptions
           6. conflicts/accept and decline.
+          7.junit
      */
     public static void main(String[] args){
         UIService.showHelp();

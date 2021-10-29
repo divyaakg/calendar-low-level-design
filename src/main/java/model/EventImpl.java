@@ -12,12 +12,14 @@ public class EventImpl implements Event{
     String title;
     String desc;
     String organiser;
-    List<String> invitees;
+    //List<String> invitees;
+    EventInvitees invitees;
     LocalDateTime st,end;
 
     public EventImpl(TokenService tokenService){
         id = tokenService.getToken();
-        invitees=new ArrayList<>();
+        //invitees=new ArrayList<>();
+        invitees=new EventInvitees();
     }
 
     public LocalDateTime getStart() {
@@ -29,18 +31,21 @@ public class EventImpl implements Event{
     public Integer getId() {
         return id;
     }
+    public EventInvitees getInvitees(){return invitees;}
+    public String getOrganiser(){return organiser;}
 
     public void setTitle(String utitle){title=utitle;}
     public void setStart(LocalDateTime start) {st=start;}
     public void setEnd(LocalDateTime uend) {end=uend;}
     public void setOrganiser(String org){organiser=org;}
-    public void addInvitees(String[] arrayi) {
-        for (String u:arrayi)
-            invitees.add(u);
-    }
+
+//    public void addInvitees(String[] arrayi) {
+//        for (String u:arrayi)
+//            invitees.add(u);
+//    }
 
     public String toString(){
-        return st.toLocalTime()+"-"+end.toLocalTime()+": "+title+" with "+organiser+" and "+invitees.toString();
+        return st.toLocalTime()+"-"+end.toLocalTime()+": eventid= "+id+", "+title+" by "+organiser+". People "+invitees.toString();
     }
     public int compareTo(Event o) {
         return (this.getStart().compareTo(o.getStart()));

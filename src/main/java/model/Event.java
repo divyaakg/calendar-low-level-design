@@ -13,6 +13,9 @@ public interface Event extends Comparable<Event>{
     Integer getId();
 
     LocalDateTime getEnd();
+    EventInvitees getInvitees();
+
+    String getOrganiser();
 
 //    void setParticipants(List<User> invitees);
 }

@@ -10,20 +10,19 @@ public class CalendarImpl implements Calendar {
 
 
     @Override
-    public void showDay() {
-        System.out.println("*********************Showing "+date.toString()+"*********************");
+    public void showDay(String name) {
+        System.out.println("*********************Showing "+date.toString()+" for "+name+" *********************");
         Collections.sort(events);
-        for(Object e:events){
+        for(Event e:events){
             System.out.println(e.toString());
         }
     }
     public LocalDate getDate(){
         return date;
     }
-    @Override
+
     public void addEvent(Event a) {
         events.add(a);
-
     }
     public String toString(){
         return date+": "+events.toString();
@@ -45,5 +44,7 @@ public class CalendarImpl implements Calendar {
         }
         return null;
     }
-
+    public void deleteEvent(Event ev){
+        events.remove(ev);
+    }
 }
