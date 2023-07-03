@@ -1,8 +1,8 @@
-package main.java.commands;
+package commands;
 
-import main.java.services.EventsService;
-import main.java.services.UserSessionService;
-import main.java.services.UserSessionService;
+import services.EventsService;
+import services.UserSessionService;
+import services.UserSessionService;
 
 public class Login extends BaseCommand {
 
@@ -17,8 +17,13 @@ public class Login extends BaseCommand {
             System.out.println("Invalid login command");
             return;
         }
+
+        if(!evtsvc.userExists(usercomm[1])) {
+            System.out.println("User "+usercomm[1]+" was not registered, Registering him");
+            evtsvc.addUser(usercomm[1]); //registering also
+        }
         sessionService.setSession(usercomm[1]);
-        evtsvc.addUser(usercomm[1]);
+        System.out.println("Logged in "+usercomm[1]);
     }
 
 

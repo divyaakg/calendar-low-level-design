@@ -1,8 +1,8 @@
-package main.java.services;
+package services;
 
-import main.java.commands.*;
+import commands.*;
 
-import java.util.Arrays;
+
 
 public class CommandFactory {
     EventsService evtSvc;

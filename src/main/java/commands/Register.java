@@ -1,7 +1,7 @@
-package main.java.commands;
+package commands;
 
-import main.java.services.EventsService;
-import main.java.services.UserSessionService;
+import services.*;
+
 
 public class Register  extends BaseCommand{
     public Register(String[] splitted, EventsService evtSvc, UserSessionService sessionService) {
@@ -12,6 +12,7 @@ public class Register  extends BaseCommand{
         String[] names=usercomm[1].split(",");
         for(String name:names){
             evtsvc.addUser(name);
+            System.out.println("Registered "+name);
         }
     }
 

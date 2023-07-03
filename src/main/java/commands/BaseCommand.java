@@ -1,7 +1,7 @@
-package main.java.commands;
+package commands;
 
-import main.java.services.EventsService;
-import main.java.services.UserSessionService;
+import services.EventsService;
+import services.UserSessionService;
 
 public abstract class BaseCommand implements Command {
     protected String [] usercomm;

@@ -1,4 +1,4 @@
-package main.java.commands;
+package commands;
 
 
 public interface Command {

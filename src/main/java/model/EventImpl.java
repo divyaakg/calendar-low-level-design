@@ -1,6 +1,7 @@
-package main.java.model;
+package model;
 
-import main.java.services.TokenService;
+
+import services.TokenService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

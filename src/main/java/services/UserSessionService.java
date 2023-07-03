@@ -1,7 +1,7 @@
-package main.java.services;
+package services;
 
 
-import main.java.exceptions.NotSignedInException;
+import exceptions.NotSignedInException;
 
 public class UserSessionService {
     //Map<String,UserSession> sessionMap;

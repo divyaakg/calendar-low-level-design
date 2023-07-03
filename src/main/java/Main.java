@@ -1,7 +1,7 @@
-package main.java;
 
-import main.java.commands.Command;
-import main.java.services.*;
+
+import services.*;
+import commands.Command;
 
 import java.util.Scanner;
 import java.util.logging.Logger;

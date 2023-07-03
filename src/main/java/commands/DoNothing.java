@@ -1,8 +1,8 @@
-package main.java.commands;
+package commands;
 
-import main.java.services.EventsService;
-import main.java.services.UIService;
-import main.java.services.UserSessionService;
+import services.EventsService;
+import services.UIService;
+import services.UserSessionService;
 
 public class DoNothing extends BaseCommand {
     //String[] userstr;

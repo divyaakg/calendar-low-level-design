@@ -1,9 +1,10 @@
-package main.java.services;
+package services;
 
-import main.java.model.Calendar;
-import main.java.model.CalendarImpl;
-import main.java.model.Event;
-import main.java.model.User;
+import exceptions.UserNotRegistered;
+import model.Calendar;
+import model.CalendarImpl;
+import model.Event;
+import model.User;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -25,11 +26,19 @@ public class EventsService {
         User u=new User(name);
         userCal.add(u);
     }
+    public boolean userExists(String name){
+        for(User u:userCal){
+            if(u.getUsername().equals(name))
+                return true;
+        } return false;
+    }
     private User getUser(String name){
         for(User u:userCal){
             if(u.getUsername().equals(name))
                 return u;
         }
+        System.out.println("User "+name+" does not exist");
+        //throw new UserNotRegistered("Need to register "+name);
         return null;
     }
     public void addEvent(String username, Event ev){
@@ -38,6 +47,7 @@ public class EventsService {
         if(u==null){
             u=new User(username);
             userCal.add(u);
+            System.out.println("Added event in user "+username+" calendar");
         }
         //System.out.println(u);
         Calendar day =u.getDay(dt);

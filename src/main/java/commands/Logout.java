@@ -1,8 +1,8 @@
-package main.java.commands;
+package commands;
 
-import main.java.exceptions.NotSignedInException;
-import main.java.services.EventsService;
-import main.java.services.UserSessionService;
+import exceptions.NotSignedInException;
+import services.EventsService;
+import services.UserSessionService;
 
 import java.time.LocalDate;
 
