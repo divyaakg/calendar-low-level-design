@@ -1,9 +1,6 @@
 # calendar-low-level-design
-Calendar to help users keep track of their own events, and invite other people for collaboration
+Low level design of a Calendar. It uses Java, multi-threading 
+and Spring framework for dependency injection. 
+Also leverages design patterns wherever applicable.
 
-#TODO
-1. Exceptions
-2. Microservice based architecture
-3. Unit Test cases
-4. Multithreading?
-5. editEvent command
+
