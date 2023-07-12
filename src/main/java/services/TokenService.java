@@ -1,14 +1,8 @@
 package services;
 
-public class TokenService {
-    int lasttoken;
+import org.springframework.stereotype.Service;
 
-    public int getToken() {
-        lasttoken++;
-        return lasttoken;
-    }
 
-    public TokenService(){
-        lasttoken=0;
-    }
+public interface TokenService {
+    public int getToken();
 }

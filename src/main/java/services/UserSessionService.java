@@ -2,35 +2,17 @@ package services;
 
 
 import exceptions.NotSignedInException;
+import org.springframework.stereotype.Service;
 
-public class UserSessionService {
-    //Map<String,UserSession> sessionMap;
-    String username;
+@Service
+public interface UserSessionService {
+
+    public String getSession() throws NotSignedInException;
 
 
-    public String getSession() throws NotSignedInException{
-        if(username.equals("")){
-            throw new NotSignedInException();
-        }
-        return username;
-//        if(sessionMap.containsKey(username))
-//            return sessionMap.get(username);
-//        else{ UserSession session=new UserSession(username);
-//            sessionMap.put(username,session);
-//            return session;
-//        }
-    }
+    public void deleteSession();
 
-    public void deleteSession(){
-        //sessionMap.remove(username);
-        username="";
-    }
+    public void setSession(String s);
 
-    public void setSession(String s) {
-        username=s;
-    }
 
-    public UserSessionService(){
-        username=new String("");
-    }
 }

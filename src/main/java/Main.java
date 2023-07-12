@@ -1,10 +1,14 @@
 
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import services.*;
 import commands.Command;
 
 import java.util.Scanner;
-import java.util.logging.Logger;
+
 public class Main {
     /*
     todo: 1. multithreading
@@ -15,15 +19,15 @@ public class Main {
           6. conflicts/accept and decline.
           7.junit
      */
+
     public static void main(String[] args){
-        UIService.showHelp();
-        EventsService eventsService=new EventsService();
-        CommandFactory commandFactory=new CommandFactory(eventsService, new TokenService(), new UserSessionService());
+        ApplicationContext context=new AnnotationConfigApplicationContext(MainConfig.class);
+        UIService uiService=context.getBean(UIService.class);
+        uiService.showHelp();
         Scanner sc=new Scanner(System.in);
         String usercomm=sc.nextLine();
         while (usercomm.compareTo("exit") != 0) {
-            Command cmd = commandFactory.createCommand(usercomm);
-            cmd.execute();
+            uiService.handleUserInput(usercomm);
             usercomm=sc.nextLine();
         }
     }
