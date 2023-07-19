@@ -4,6 +4,7 @@ import commands.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,8 @@ public class UIServiceImpl implements UIService{
     UserSessionService sessionService;
     @Autowired
     TokenService tknSvc;
+    @Autowired
+    ThreadPoolCommand execSvc;
 
     public void showHelp() {
         List<String> help =new ArrayList<>();
@@ -38,7 +41,8 @@ public class UIServiceImpl implements UIService{
     @Override
     public void handleUserInput(String s) {
         Command command=createCommand(s);
-        command.execute();
+        execSvc.submitWork(command);
+        //command.execute();
     }
 
     private Command createCommand(String userstr){

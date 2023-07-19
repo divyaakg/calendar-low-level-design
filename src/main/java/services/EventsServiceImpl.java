@@ -43,6 +43,12 @@ public class EventsServiceImpl implements EventsService {
         return null;
     }
     public void addEvent(String username, Event ev){
+        try {
+            //System.out.println("Working to create the event");
+            Thread.sleep(30000);
+        } catch(InterruptedException e){
+            ;
+        }
         LocalDate dt=ev.getStart().toLocalDate();
         User u=getUser(username);
         if(u==null){
@@ -56,12 +62,7 @@ public class EventsServiceImpl implements EventsService {
             day=new CalendarImpl(dt);
             u.addDay(day);
         } day.addEvent(ev);
-        try {
-            System.out.println("Working to create the event");
-            Thread.sleep(10000);
-        } catch(InterruptedException e){
-            ;
-        } allEvents.put(ev.getId(),ev);
+        allEvents.put(ev.getId(),ev);
         //System.out.println(u);
     }
     public void showDay(String username, LocalDate dt){
